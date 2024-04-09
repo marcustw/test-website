@@ -3,7 +3,10 @@ import { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { useTranslation } from "react-i18next";
 import "../../utils/translate.js";
-const data = [{ lang: "En", code: "GB" }];
+const data = [
+  { lang: "En", code: "GB" },
+  { lang: "Mn", code: "MN" },
+];
 function LangSelect(props) {
   const [langData, setData] = useState(data);
   const [show, setShow] = useState(false);
