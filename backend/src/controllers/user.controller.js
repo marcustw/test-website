@@ -1,5 +1,6 @@
 const UserService = require('../services/user.service');
-
+const { generateOTP } = require('../utils/common.utils');
+const EmailType = require('../utils/emailType.utils');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -45,14 +46,14 @@ class UserController {
         }
     };
 
-    // getUserByUserName = async (req, res, next) => {
-    //     try {
-    //         let user = await UserService.getUserByUserName(req.params.username)
-    //         res.send(user)
-    //     } catch (error) {
-    //         next(error)
-    //     }
-    // };
+    getUserByUserName = async (req, res, next) => {
+        try {
+            let user = await UserService.getUserByUserName(req.params.username)
+            res.send(user)
+        } catch (error) {
+            next(error)
+        }
+    };
 
     getCurrentUser = async (req, res, next) => {
         try {

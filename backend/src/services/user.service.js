@@ -68,8 +68,7 @@ class UserService {
             return {response: false, message: "Email validation failed.", data:null}
         }
         let verificationCode = this.makeRandomString(4);
-
-        const subject = i18n.__({phrase: "MGL Exchange: Email Verification", locale: locale})
+        const subject = i18n.__({phrase: "MGL Exchange: Email Verification", locale: locale});
         const body = i18n.__({phrase: "Your Email verification code is %s", locale: locale}, verificationCode);
         emailService.deliverEmail(email, subject, body)
         
@@ -91,7 +90,7 @@ class UserService {
                 return {response: false, message: result.error, data:null}
             }
         }
-        console.log(verificationCode)
+        console.log("Verification code:", verificationCode)
         return {response: true, message: "Success. Email Verification Code was send to your Email address.", data:null}
     }
 
